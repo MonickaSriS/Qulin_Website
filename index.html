@@ -22,7 +22,6 @@
       flex-direction: column;
       align-items: center;
       max-width: 100vw;
-      overflow-x: hidden;
     }
     main {
       width: 90%;
@@ -36,15 +35,6 @@
       margin-bottom: 16px;
       text-align: center;
       user-select: text;
-      opacity: 0;
-      animation: slideFadeInDown 1s forwards;
-    }
-    h2 {
-      animation-delay: 0.3s;
-    }
-    h3 {
-      opacity: 1; /* Feature titles appear normally inside cards */
-      animation: none;
     }
     p {
       color: #5B4636;
@@ -52,9 +42,6 @@
       margin-bottom: 20px;
       text-align: center;
       user-select: text;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-      animation-delay: 0.5s;
     }
     a.button {
       display: inline-block;
@@ -67,10 +54,6 @@
       box-shadow: 0 8px 20px rgba(139,109,92,0.3);
       transition: background 0.3s ease, box-shadow 0.3s ease;
       margin-top: 12px;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-      animation-delay: 0.7s;
-      cursor: pointer;
     }
     a.button:hover,
     a.button:focus {
@@ -86,7 +69,40 @@
       box-shadow: 0 3px 12px rgba(91,70,54,0.15);
       width: 100%;
       user-select: none;
-      overflow: hidden;
+      display: flex;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto 0 auto;
+      gap: 16px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      user-select: none;
+    }
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #8B6D5C;
+      user-select: text;
+    }
+    header h1 {
+      margin: 0;
+      flex-grow: 1;
+      font-size: 2rem;
+      color: #4A3823;
+      user-select: text;
+    }
+    header p {
+      flex-basis: 100%;
+      margin-top: 8px;
+      font-weight: 600;
+      color: #5B4636;
+      user-select: text;
+      text-align: center;
     }
 
     /* Features Grid */
@@ -108,11 +124,6 @@
       cursor: default;
       user-select: none;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    .feature-card.visible {
-      animation: fadeSlideUp 0.8s forwards;
     }
     .feature-card:hover,
     .feature-card:focus {
@@ -152,9 +163,6 @@
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-      animation-delay: 0.9s;
     }
 
     /* Footer with contact and details */
@@ -189,6 +197,11 @@
       text-decoration: underline;
       outline: none;
     }
+    /* Additional styling for executives contact */
+    .executives p {
+      margin: 6px 0;
+      font-weight: 600;
+    }
 
     /* Responsive adjustments */
     @media (max-width: 720px) {
@@ -208,49 +221,41 @@
         margin: 15px 0;
         flex: 1 1 100%;
       }
-    }
-
-    /* Keyframe animations */
-    @keyframes slideFadeInDown {
-      0% {
-        opacity: 0;
-        transform: translateY(-20px);
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
+      header h1 {
+        flex-grow: 0;
+        font-size: 1.8rem;
       }
-    }
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-    @keyframes fadeSlideUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
+      header p {
+        margin-top: 10px;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
   <header>
+    <div class="logo" aria-label="QULIN logo">
+      <svg width="40" height="40" viewBox="0 0 64 64" fill="#8B6D5C" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" stroke="#704F3D" stroke-width="4" fill="#E9D8C4"/>
+        <path d="M20 24 L32 40 L44 24" stroke="#704F3D" stroke-width="4" fill="none" stroke-linejoin="round"/>
+        <path d="M32 40 L32 20" stroke="#704F3D" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-text">QULIN</span>
+    </div>
     <h1>QULIN</h1>
+  </header>
+
+  <main>
     <p><strong>AI-DRIVEN SMART KITCHEN ASSISTANT FOR<br />PREDICTIVE FOOD MANAGEMENT AND WASTE REDUCTION</strong></p>
     <div style="text-align:center;">
       <a href="#features" class="button" aria-label="Explore QULIN features">Explore Features</a>
     </div>
-  </header>
 
-  <main>
     <section id="features" aria-label="QULIN Features">
       <h2>Key Features</h2>
       <div class="features-grid" role="list">
@@ -309,8 +314,8 @@
     <div>
       <h4>Contact Us</h4>
       <p>Email: <a href="mailto:support@qulin.com" aria-label="Email support at support@qulin.com">support@qulin.com</a></p>
-      <p>Phone: <a href="tel:+91 23064 21458" aria-label="Call QULIN support at +1 234 567 890">+91 23064 21458</a></p>
-      <p>Instagram: _qulin_ai          </p>
+      <p>Phone: <a href="tel:+1234567890" aria-label="Call QULIN support at +1 234 567 890">+1 234 567 890</a></p>
+      <p>Address: 123 QULIN St, Smart City, USA</p>
     </div>
     <div>
       <h4>Company</h4>
@@ -324,44 +329,11 @@
       <p><a href="#" aria-label="Privacy Policy for QULIN">Privacy Policy</a></p>
       <p><a href="#" aria-label="Terms and Conditions for QULIN">Terms &amp; Conditions</a></p>
     </div>
+    <div class="executives">
+      <h4>Executive Contacts</h4>
+      <p>Monicka Sri S: CEO</p>
+      <p>Janani K S: CTO</p>
+    </div>
   </footer>
-
-  <script>
-    // Animate feature cards on scroll into view using Intersection Observer
-    document.addEventListener("DOMContentLoaded", () => {
-      const cards = document.querySelectorAll(".feature-card");
-      const options = {
-        threshold: 0.2,
-      };
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, options);
-
-      cards.forEach(card => {
-        observer.observe(card);
-      });
-
-      // Smooth scroll for explore features button
-      const button = document.querySelector('a.button[href^="#"]');
-      if(button){
-        button.addEventListener("click", e => {
-          e.preventDefault();
-          const targetId = button.getAttribute("href").substring(1);
-          const targetElem = document.getElementById(targetId);
-          if(targetElem){
-            targetElem.scrollIntoView({behavior: "smooth"});
-          }
-        });
-      }
-    });
-  </script>
 </body>
 </html>
-
-
-
